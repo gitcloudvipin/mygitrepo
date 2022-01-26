@@ -4,8 +4,11 @@ job('example'){
         numToKeep(2)
       }
    scm{
-      github('https://github.com/gitcloudvipin/mygitrepo.git' ,'master')
-      credentials('git-id')
+      git {
+  
+         github('https://github.com/gitcloudvipin/mygitrepo.git' ,'master')
+         credentials('git-id')
+      }
       
    }
   triggers{
