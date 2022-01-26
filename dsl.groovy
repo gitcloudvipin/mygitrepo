@@ -1,4 +1,4 @@
-job('example'-${BUILD_MUMBER}){
+job('example-'${BUILD_MUMBER}){
    description('dsl-job number one')
    logRotator {
         numToKeep(2)
