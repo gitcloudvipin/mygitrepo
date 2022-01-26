@@ -5,11 +5,12 @@ job('example'){
       }
    scm{
       git {
+        branch('master')
         remote{
          name('origin')
          github('gitcloudvipin/mygitrepo' ,'https')
          credentials('git-id')
-      } branch('master')
+      }
 }
       
    }
