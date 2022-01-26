@@ -5,7 +5,7 @@ job('example'){
       }
    scm{
       github('https://github.com/gitcloudvipin/mygitrepo.git' ,'master')
-      {credentialsId('Jenkins')}
+      {credentials('Jenkins')}
       
    }
   triggers{
