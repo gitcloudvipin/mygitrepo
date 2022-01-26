@@ -5,10 +5,10 @@ job('example'){
       }
    scm{
       git {
-  
+        remote{
          github('https://github.com/gitcloudvipin/mygitrepo.git' ,'master')
          credentials('git-id')
-      }
+      }}
       
    }
   triggers{
