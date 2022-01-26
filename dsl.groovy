@@ -21,7 +21,7 @@ job('example-1'){
       shell('echo "Hello World!!!!"')
 }
 }
-job('example-2'){
+job('example-21'){
    description('dsl-job number one')
    logRotator {
         numToKeep(2)
