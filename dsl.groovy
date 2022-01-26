@@ -7,9 +7,10 @@ job('example'){
       git {
         remote{
          name('origin')
-         github('gitcloudvipin/mygitrepo.git' ,'https')
+         github('gitcloudvipin/mygitrepo' ,'https')
          credentials('git-id')
-      }}
+      } branch('master')
+}
       
    }
   triggers{
