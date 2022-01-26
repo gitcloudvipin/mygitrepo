@@ -6,7 +6,7 @@ job('example'){
    scm{
       git {
         remote{
-         github('github.com/gitcloudvipin/mygitrepo.git' ,'master', 'https')
+         github('github.com/gitcloudvipin/mygitrepo.git' ,'https')
          credentials('git-id')
       }}
       
