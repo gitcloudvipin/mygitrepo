@@ -21,6 +21,10 @@ job('example-1'){
       shell('echo "Hello World!!!!"')
 }
 }
+
+
+
+
 job('example-2'){
    description('dsl-job number one')
    logRotator {
@@ -28,7 +32,7 @@ job('example-2'){
       }
    scm{
       git {
-        branch('master')
+        branch('feature')
         remote{
          name('origin')
          github('gitcloudvipin/mygitrepo' ,'https')
