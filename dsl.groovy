@@ -28,7 +28,7 @@ job('example-21'){
       }
    scm{
       git {
-        branch('master')
+        branch('feature')
         remote{
          name('origin')
          github('gitcloudvipin/mygitrepo' ,'https')
