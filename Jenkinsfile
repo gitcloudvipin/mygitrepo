@@ -3,7 +3,7 @@ pipeline {
   stages {
      stage('Build'){
         steps {
-            echo "this is build step"
+            sh "mvn -f Maven_Examples/sample_java/pom.xml clean package"
               }
             }
      stage("test") {
