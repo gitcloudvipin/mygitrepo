@@ -3,6 +3,13 @@ job('example'){
    logRotator {
         numToKeep(2)
       }
+   scm{
+      github('https://github.com/gitcloudvipin/mygitrepo.git' ,'master')
+      
+   }
+  triggers{
+      githubPush()
+    }
    steps{
       shell('echo "Hello World!!!!"')
 }
