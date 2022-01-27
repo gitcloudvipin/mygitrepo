@@ -6,7 +6,7 @@ pipeline {
   stages {
      stage("BuildNEW1"){
         steps {
-            sh "/opt/apache-maven-3.6.3/bin/mvn -f Maven_Examples/sample_java/pom.xml  clean package -DMaven.local.repo=/home/vipin"
+            sh "/opt/apache-maven-3.6.3/bin/mvn -f Maven_Examples/sample_java/pom.xml  clean package -DMaven.repo.local=/home/vipin"
               }
             }
      stage("test") {
