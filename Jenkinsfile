@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-        maven "localjdk"
+        jdk "localjdk"
     }
   stages {
      stage("BuildNEW1"){
