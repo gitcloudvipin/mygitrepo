@@ -12,7 +12,7 @@ pipeline {
      stage("test") {
         steps {
               echo "moving file to some other directory"
-              echo $WORKSPACE
+              echo ${WORKSPACE}
                 }
         }
      stage("Deploy") {
