@@ -13,6 +13,7 @@ pipeline {
         steps {
               echo "moving file to some other directory"
               echo "${WORKSPACE}"
+              sh 'mv "${WORKSPACE}"/Maven_Examples/sample_java/target/*.jar /home/jarDirectory'
                 }
         }
      stage("Deploy") {
