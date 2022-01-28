@@ -27,11 +27,12 @@ pipeline {
             sh 'terraform apply -auto-approve "\"${WORKSPACE}/plan.txt"\" '
                }
          }
-     post {
+    }
+  post {
         always {
           emailext body: '${BUID_NUMBER} got failed.', subject: 'This is pipeline test EMAIL', to: '9458vipin@gmail.com,umeshkgangwar@gmail.com'  
         }
     }
-}
+
 
 }
