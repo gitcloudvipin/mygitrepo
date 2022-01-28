@@ -30,7 +30,7 @@ pipeline {
     }
   post {
         always {
-          emailext body: '${BUID_NUMBER} got failed.', subject: 'This is pipeline test EMAIL', to: '9458vipin@gmail.com,umeshkgangwar@gmail.com'  
+          emailext body: '${BUID_NUMBER} got failed.', subject: 'This is pipeline test EMAIL', to: '9458vipin@gmail.com'  
         }
     }
 
