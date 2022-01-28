@@ -24,7 +24,7 @@ pipeline {
      }
      stage("Deploy") {
          steps {
-            sh 'terraform apply "plan.txt" --auto-approve'
+            sh 'terraform apply "${WORKSPACE}/plan.txt" --auto-approve'
                }
          }
 
