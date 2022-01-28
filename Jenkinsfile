@@ -27,11 +27,12 @@ pipeline {
             sh 'terraform apply -auto-approve "\"${WORKSPACE}/plan.txt"\" '
                }
          }
-     stage("terraform output")
+     stage("terraform output"){
          steps {
                sh "terraform output"
            }
     }
+}
     }
 
 
