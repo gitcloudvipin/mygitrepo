@@ -27,12 +27,12 @@ pipeline {
             sh 'terraform apply -auto-approve "\"${WORKSPACE}/plan.txt"\" '
                }
          }
-     stage("terraform output")
-         steps {
-               sh "terraform output"
-           }
     }
+  post {
+        always {
+           mail bcc: '', body: '${BUILD_NUMBER} status', cc: '', from: '', replyTo: '', subject: 'This is new pipelinetest', to: '9458vipin@gmail.com'
+        }
     }
 
 
-
+}
