@@ -15,14 +15,14 @@ pipeline {
               echo "${WORKSPACE}"
                 }
         }
-     stage("Deploy") {
+     stage("plan") {
         steps {
-           echo "this is deploy step"
+           sh "terraform plan -out plan.txt"
              }
      }
-     stage("apllication status") {
+     stage("Deploy") {
          steps {
-            echo " this is my application "
+            sh 'terraform apply "plan.txt" --auto-approve'
                }
          }
 
