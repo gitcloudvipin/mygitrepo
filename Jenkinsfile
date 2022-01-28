@@ -12,7 +12,7 @@ pipeline {
             }
      stage("test") {
         steps {
-              echo "moving file to some other directory"
+              echo "moving file to Ssome other directory"
               echo "${WORKSPACE}"
               sh "terraform init"
                 }
