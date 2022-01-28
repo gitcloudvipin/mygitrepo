@@ -22,18 +22,21 @@ pipeline {
            sh "terraform plan -out plan.txt"
              }
      }
-     stage("Deploy") {
+     stage("manual approval") {
          steps {
-            sh 'terraform apply -auto-approve "\"${WORKSPACE}/plan.txt"\" '
+		    input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
+            
                }
          }
+	 stage("Deploy"){
+	      steps {
+		      sh 'terraform apply -auto-approve "\"${WORKSPACE}/plan.txt"\" '
+		  }
+	 }
      stage("terraform output"){
          steps {
                sh "terraform output"
            }
     }
 }
-    }
-
-
-
+}
