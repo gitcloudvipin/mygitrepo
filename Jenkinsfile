@@ -2,6 +2,7 @@ pipeline {
   agent any
   tools {
         jdk "localjdk"
+        terraform "localterraform"
     }
   stages {
      stage("BuildNEW1"){
@@ -13,6 +14,7 @@ pipeline {
         steps {
               echo "moving file to some other directory"
               echo "${WORKSPACE}"
+              sh "terraform init"
                 }
         }
      stage("plan") {
