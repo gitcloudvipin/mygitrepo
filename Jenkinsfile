@@ -1,24 +1,30 @@
 pipeline {
   agent any
+  tools {
+        jdk "localjdk"
+        terraform "localterraform"
+    }
   stages {
-     stage("Build11"){
+     stage("BuildNEW1"){
         steps {
-            sh "/usr/local/bin/apache-maven-3.6.3/bin/mvn clean package -f Maven_Examples/sample_java/pom.xml"
+            sh "/opt/apache-maven-3.6.3/bin/mvn -f Maven_Examples/sample_java/pom.xml clean  package -Dmaven.repo.local=/home/vipin -DbuildDirectory=/home/jarDirectory "
               }
             }
      stage("test") {
         steps {
-              echo " this is test step "
+              echo "moving file to some other directory"
+              echo "${WORKSPACE}"
+              sh "terraform init"
                 }
         }
-     stage("Deploy") {
+     stage("plan") {
         steps {
-           echo "this is deploy step"
+           sh "terraform plan -out plan.txt"
              }
      }
-     stage("apllication status") {
+     stage("Deploy") {
          steps {
-            echo " this is my application "
+            sh 'terraform apply "plan.txt" --auto-approve'
                }
          }
 
