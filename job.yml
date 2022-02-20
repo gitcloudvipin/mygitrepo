@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+ name: myfirstjob
+
+spec:
+#  activeDeadlineSeconds: 10
+ schedule: "* * * * *"
+ suspend: True
+ jobTemplate:
+  spec:
+   template:
+    spec:
+     containers:
+      - image: cloudvipin/centos7
+        name: alpine
+        command:
+           - '/bin/bash'
+           - '-c'
+           - |
+             git clone https://github.com/gitcloudvipin/mygitrepo.git
+             cd mygitrepo
+             cp index.html /tmp
+             sleep 200
+        volumeMounts:
+           - name: index
+             mountPath: /tmp
+     volumes:
+       - name: index
+         hostPath:
+             path: /home/kubernetes
+             type: DirectoryOrCreate       
+     restartPolicy: Never
+  
